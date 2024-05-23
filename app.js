@@ -7,6 +7,7 @@ import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import adRoutes from "./routes/adRoutes.js";
 import propertyRequestRoutes from "./routes/propertyRequestRoutes.js";
+import './cron/refreshPropertyRequests.js';
 
 dotenv.config();
 const client = connectDB();
