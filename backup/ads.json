@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "664e95ef5385a3dbc3b72caf"
+  },
+  "propertyType": "VILLA",
+  "area": 12,
+  "price": 120,
+  "city": "Damietta",
+  "district": "Damietta",
+  "description": "An AD",
+  "user": {
+    "$oid": "664e8ff2572fee7d4bff8d71"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "664f711c369ae7683b00cbe3"
+  },
+  "propertyType": "VILLA",
+  "area": 12,
+  "price": 120,
+  "city": "Damietta",
+  "district": "Damietta",
+  "description": "An AD",
+  "user": {
+    "$oid": "664e8ff2572fee7d4bff8d71"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "664f71e6182cf6b6d73b9db1"
+  },
+  "propertyType": "VILLA",
+  "area": 12,
+  "price": 120,
+  "city": "Damietta",
+  "district": "Damietta",
+  "description": "An AD",
+  "user": {
+    "$oid": "664e8ff2572fee7d4bff8d71"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "664f7369d835ed6910d75c33"
+  },
+  "propertyType": "VILLA",
+  "area": 12,
+  "price": 125,
+  "city": "Damietta",
+  "district": "Damietta",
+  "description": "An AD",
+  "user": {
+    "$oid": "664e8ff2572fee7d4bff8d71"
+  },
+  "__v": 0
+}]

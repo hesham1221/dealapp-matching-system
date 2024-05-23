@@ -1,0 +1,66 @@
+[{
+  "_id": {
+    "$oid": "664e8ff2572fee7d4bff8d71"
+  },
+  "name": "hesham",
+  "phone": "01012826712",
+  "password": "$2a$10$qNt/QO32UF4zYJk5C/fkru2rUMcGOD0XLLH0CguaeNkP.UwaOqXji",
+  "role": "AGENT",
+  "status": "ACTIVE",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "664e9281d8865f363449d829"
+  },
+  "name": "hesham",
+  "phone": "01012826742",
+  "password": "$2a$10$O/Qs2RyVrKWNHUncGS4pKudruGyf2aGlTeFCE2Y1PvSP.AtSexadu",
+  "role": "AGENT",
+  "status": "ACTIVE",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "664e92e310afcfb85d02b96d"
+  },
+  "name": "hesham",
+  "phone": "01012826702",
+  "password": "$2a$10$CgEHQQGwz6yhfIQhyxR/heKXCb8HRGPweRaERbjEDm/daK.ulbBZC",
+  "role": "AGENT",
+  "status": "ACTIVE",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "664e93adb0f37c0f36be442c"
+  },
+  "name": "hesham",
+  "phone": "010128267020",
+  "password": "$2a$10$hx5tW75/WgZOftCqHSOsCeHdCXmFjJEC3nroZyrmFFHYb0is71Cui",
+  "role": "AGENT",
+  "status": "ACTIVE",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "664e94905385a3dbc3b72cac"
+  },
+  "name": "hesham",
+  "phone": "01012826020",
+  "password": "$2a$10$xQnaDUYs2Jwva1MuwySiuuNoXzX8fZ8DU6WZDMTtoPYD7tThxIDHi",
+  "role": "AGENT",
+  "status": "ACTIVE",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "664f791e7607f07f6e02e7f3"
+  },
+  "name": "hesham",
+  "phone": "01012826040",
+  "password": "$2a$10$25U8jsBT4ptBn6nR98ymseZ/AzQ4OTwc3KdEMbTsnHggkg1k464b2",
+  "role": "ADMIN",
+  "status": "ACTIVE",
+  "__v": 0
+}]

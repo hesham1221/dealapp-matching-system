@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "664f756c7a48e9ee8750c104"
+  },
+  "propertyType": "VILLA",
+  "area": 3,
+  "price": 150,
+  "city": "Damietta",
+  "district": "Damietta",
+  "description": "Properity Request Desc",
+  "user": {
+    "$oid": "664e8ff2572fee7d4bff8d71"
+  },
+  "refreshedAt": {
+    "$date": "2024-05-23T21:00:00.921Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "664fa4e5343a07f4b90c6807"
+  },
+  "propertyType": "VILLA",
+  "area": 12,
+  "price": 125,
+  "city": "Damietta",
+  "district": "Damietta",
+  "description": "A Property Request",
+  "user": {
+    "$oid": "664e8ff2572fee7d4bff8d71"
+  },
+  "refreshedAt": {
+    "$date": "2024-05-23T21:00:00.921Z"
+  },
+  "__v": 0
+}]
