@@ -6,6 +6,8 @@ import {
   updatePropertyRequestSchema,
 } from "../validators/propertyRequestValidators.js";
 import { paginate } from "../services/pagination.js";
+import { parseQueryParams } from "../services/paramParse.js";
+import { getProperityRequestSchema } from "../validators/getProperityRequestValidator.js";
 
 export const createPropertyRequest = async (req, res) => {
   try {
@@ -60,9 +62,52 @@ export const updatePropertyRequest = async (req, res) => {
 };
 
 export const getUserPropertyRequests = async (req, res) => {
-  const { page = 1, limit = 10 } = req.query;
   try {
-    const query = { user: req.user._id };
+    const { query, page, limit } = parseQueryParams(
+      req.query,
+      {
+        user: req.user._id,
+        ...((req.query?.minPrice || req.query?.maxPrice) && {
+          price: {
+            ...(req.query?.minPrice && {
+              $gte: parseInt(req.query?.minPrice, 10),
+            }),
+            ...(req.query?.maxPrice && { $lte: parseInt(req.query?.maxPrice) }),
+          },
+        }),
+      },
+      getProperityRequestSchema,
+      true,
+      false,
+      ["minPrice", "maxPrice"]
+    );
+    const results = await paginate(PropertyRequest, query, page, limit, {
+      refreshedAt: -1,
+    });
+    res.json(results);
+  } catch (error) {
+    handleError(res, 500, error.message);
+  }
+};
+export const getPropertyRequests = async (req, res) => {
+  try {
+    const { query, page, limit } = parseQueryParams(
+      req.query,
+      {
+        ...((req.query?.minPrice || req.query?.maxPrice) && {
+          price: {
+            ...(req.query?.minPrice && {
+              $gte: parseInt(req.query?.minPrice, 10),
+            }),
+            ...(req.query?.maxPrice && { $lte: parseInt(req.query?.maxPrice) }),
+          },
+        }),
+      },
+      getProperityRequestSchema,
+      true,
+      false,
+      ["minPrice", "maxPrice"]
+    );
     const results = await paginate(PropertyRequest, query, page, limit, {
       refreshedAt: -1,
     });

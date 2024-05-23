@@ -1,6 +1,11 @@
-import express from 'express';
-import { createPropertyRequest, getUserPropertyRequests, updatePropertyRequest } from '../controllers/propertyRequestController.js';
-import authMiddleware from '../middleware/authMiddleware.js';
+import express from "express";
+import {
+  createPropertyRequest,
+  getPropertyRequests,
+  getUserPropertyRequests,
+  updatePropertyRequest,
+} from "../controllers/propertyRequestController.js";
+import authMiddleware from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
@@ -74,9 +79,10 @@ const router = express.Router();
  *       400:
  *         description: Bad request
  */
-router.post('/', authMiddleware, createPropertyRequest);
+router.post("/", authMiddleware, createPropertyRequest);
 
-router.patch('/:id', authMiddleware, updatePropertyRequest);
-router.get('/' , authMiddleware, getUserPropertyRequests);
+router.patch("/:id", authMiddleware, updatePropertyRequest);
+router.get("/", authMiddleware, getPropertyRequests);
+router.get("/my-requests", authMiddleware, getUserPropertyRequests);
 
 export default router;
