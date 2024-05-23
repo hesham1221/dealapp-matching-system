@@ -1,0 +1,484 @@
+{
+	"info": {
+		"_postman_id": "580acddc-fbd9-44ab-8086-f38fd8a27030",
+		"name": "Dealapp Matching System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"hesham\",\r\n    \"phone\" : \"01012826040\",\r\n    \"password\" : \"testPassword\",\r\n    \"role\" : \"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/auth/register",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\" : \"01012826712\",\r\n    \"password\" : \"testPassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/auth/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ad",
+			"item": [
+				{
+					"name": "Create  New Add",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{apiToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"propertyType\": \"VILLA\",\r\n    \"area\": 12,\r\n    \"price\": 125,\r\n    \"city\": \"Damietta\",\r\n    \"district\": \"Damietta\",\r\n    \"description\": \"An AD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/ads",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"ads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Match Add",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{apiToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/ads/match?adId=664f711c369ae7683b00cbe3&page=1&limit=10",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"ads",
+								"match"
+							],
+							"query": [
+								{
+									"key": "adId",
+									"value": "664f711c369ae7683b00cbe3"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ads",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{apiToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/ads?propertyType=VILLA&area=12&city=Damietta&district=Damietta&minPrice=100&maxPrice=120",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"ads"
+							],
+							"query": [
+								{
+									"key": "propertyType",
+									"value": "VILLA"
+								},
+								{
+									"key": "area",
+									"value": "12"
+								},
+								{
+									"key": "city",
+									"value": "Damietta"
+								},
+								{
+									"key": "district",
+									"value": "Damietta"
+								},
+								{
+									"key": "minPrice",
+									"value": "100"
+								},
+								{
+									"key": "maxPrice",
+									"value": "120"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get My Ads",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{apiToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/ads/my-ads?propertyType=VILLA&area=12&city=Damietta&district=Damietta&minPrice=100&maxPrice=120",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"ads",
+								"my-ads"
+							],
+							"query": [
+								{
+									"key": "propertyType",
+									"value": "VILLA"
+								},
+								{
+									"key": "area",
+									"value": "12"
+								},
+								{
+									"key": "city",
+									"value": "Damietta"
+								},
+								{
+									"key": "district",
+									"value": "Damietta"
+								},
+								{
+									"key": "minPrice",
+									"value": "100"
+								},
+								{
+									"key": "maxPrice",
+									"value": "120"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Property Request",
+			"item": [
+				{
+					"name": "Get Property Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{apiToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/property-requests?propertyType=VILLA&area=3&city=Damietta&district=Damietta&minPrice=100",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"property-requests"
+							],
+							"query": [
+								{
+									"key": "propertyType",
+									"value": "VILLA"
+								},
+								{
+									"key": "area",
+									"value": "3"
+								},
+								{
+									"key": "city",
+									"value": "Damietta"
+								},
+								{
+									"key": "district",
+									"value": "Damietta"
+								},
+								{
+									"key": "minPrice",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get My Property Requests",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{apiToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/property-requests/my-requests?propertyType=VILLA&area=3&city=Damietta&district=Damietta&minPrice=100",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"property-requests",
+								"my-requests"
+							],
+							"query": [
+								{
+									"key": "propertyType",
+									"value": "VILLA"
+								},
+								{
+									"key": "area",
+									"value": "3"
+								},
+								{
+									"key": "city",
+									"value": "Damietta"
+								},
+								{
+									"key": "district",
+									"value": "Damietta"
+								},
+								{
+									"key": "minPrice",
+									"value": "100"
+								},
+								{
+									"key": "maxPrice",
+									"value": "120",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Property Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{apiToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"propertyType\" : \"VILLA\",\r\n    \"area\" : 12,\r\n    \"price\" : 125,\r\n    \"city\" :\"Damietta\",\r\n    \"district\" : \"Damietta\",\r\n    \"description\" : \"A Property Request\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/property-requests",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"property-requests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Property Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{apiToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\" : \"Properity Request Desc\",\r\n    \"area\" : 3,\r\n    \"price\" : 150\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/property-requests/664f756c7a48e9ee8750c104",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"property-requests",
+								"664f756c7a48e9ee8750c104"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Admin Stats",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{apiToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/users/admin-stats",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"admin-stats"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
