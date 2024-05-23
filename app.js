@@ -9,7 +9,7 @@ import adRoutes from "./routes/adRoutes.js";
 import propertyRequestRoutes from "./routes/propertyRequestRoutes.js";
 
 dotenv.config();
-connectDB();
+const client = connectDB();
 
 const app = express();
 
@@ -30,4 +30,4 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-export { app };
+export { app , client };

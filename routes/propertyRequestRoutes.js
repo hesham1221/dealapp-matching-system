@@ -1,5 +1,5 @@
 import express from 'express';
-import { createPropertyRequest, updatePropertyRequest } from '../controllers/propertyRequestController.js';
+import { createPropertyRequest, getUserPropertyRequests, updatePropertyRequest } from '../controllers/propertyRequestController.js';
 import authMiddleware from '../middleware/authMiddleware.js';
 
 const router = express.Router();
@@ -7,6 +7,11 @@ const router = express.Router();
 /**
  * @swagger
  * components:
+ *   securitySchemes:
+ *     bearerAuth:
+ *       type: http
+ *       scheme: bearer
+ *       bearerFormat: JWT
  *   schemas:
  *     PropertyRequest:
  *       type: object
@@ -71,6 +76,7 @@ const router = express.Router();
  */
 router.post('/', authMiddleware, createPropertyRequest);
 
-router.put('/:id', authMiddleware, updatePropertyRequest);
+router.patch('/:id', authMiddleware, updatePropertyRequest);
+router.get('/' , authMiddleware, getUserPropertyRequests);
 
 export default router;

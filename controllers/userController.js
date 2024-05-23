@@ -38,10 +38,12 @@ export const getAdminStats = async (req, res) => {
     ];
 
     const users = await paginate(
+      User,
       User.aggregate(aggregationPipeline),
-      {},
       page,
-      limit
+      limit,
+      { createdAt: -1 },
+      true
     );
 
     res.json(users);

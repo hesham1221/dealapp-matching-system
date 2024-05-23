@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import mongoosePaginate from "mongoose-paginate-v2";
+import aggregatePaginate from 'mongoose-aggregate-paginate-v2';
 
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -10,5 +11,6 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.plugin(mongoosePaginate);
+userSchema.plugin(aggregatePaginate);
 
 export default mongoose.model("User", userSchema);

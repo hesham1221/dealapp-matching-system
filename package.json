@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node app.js",
-    "test": "mocha --timeout 10000 tests/**/*.test.js",
-    "dev" : "nodemon app.js"
+    "test": "mocha './tests/**/*.test.js'",
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "Hesham",
@@ -23,6 +23,7 @@
     "jsonwebtoken": "^9.0.2",
     "mocha": "^10.4.0",
     "mongoose": "^8.4.0",
+    "mongoose-aggregate-paginate-v2": "^1.0.7",
     "mongoose-paginate-v2": "^1.8.1",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0"

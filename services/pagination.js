@@ -3,16 +3,17 @@ export const paginate = async (
   query,
   page = 1,
   limit = 10,
-  sort = {}
+  sort = {},
+  aggregate = false
 ) => {
   const options = {
     page: parseInt(page, 10),
     limit: parseInt(limit, 10),
     sort,
   };
-
-  const result = await model.paginate(query, options);
-
+  const result = aggregate
+    ? await model.aggregatePaginate(query, options)
+    : await model.paginate(query, options);
   return {
     data: result.docs,
     page: result.page,
