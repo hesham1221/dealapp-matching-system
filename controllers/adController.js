@@ -4,6 +4,8 @@ import { handleError } from "../middleware/errorHandler.js";
 import { validateRequest } from "../services/validation.js";
 import { adSchema } from "../validators/adValidators.js";
 import { paginate } from "../services/pagination.js";
+import { parseQueryParams } from "../services/paramParse.js";
+import { getAdSchema } from "../validators/getAdValidators.js";
 
 export const createAd = async (req, res) => {
   try {
@@ -49,10 +51,54 @@ export const matchRequests = async (req, res) => {
 };
 
 export const getUserAds = async (req, res) => {
-  const { page, limit } = req.query;
   try {
-    const query = { user: req.user._id };
+    const { query, page, limit } = parseQueryParams(
+      req.query,
+      {
+        user: req.user._id,
+        ...((req.query?.minPrice || req.query?.maxPrice) && {
+          price: {
+            ...(req.query?.minPrice && {
+              $gte: parseInt(req.query?.minPrice, 10),
+            }),
+            ...(req.query?.maxPrice && { $lte: parseInt(req.query?.maxPrice) }),
+          },
+        }),
+      },
+      getAdSchema,
+      true,
+      false,
+      ["minPrice", "maxPrice"]
+    );
     const results = await paginate(Ad, query, page, limit, { createdAt: -1 });
+    res.json(results);
+  } catch (error) {
+    handleError(res, 500, error.message);
+  }
+};
+
+export const getAds = async (req, res) => {
+  const { query, page, limit } = parseQueryParams(
+    req.query,
+    {
+      ...((req.query?.minPrice || req.query?.maxPrice) && {
+        price: {
+          ...(req.query?.minPrice && {
+            $gte: parseInt(req.query?.minPrice, 10),
+          }),
+          ...(req.query?.maxPrice && { $lte: parseInt(req.query?.maxPrice) }),
+        },
+      }),
+    },
+    getAdSchema,
+    true,
+    false,
+    ["minPrice", "maxPrice"]
+  );
+  try {
+    const results = await paginate(Ad, query, page, limit, {
+      createdAt: -1,
+    });
     res.json(results);
   } catch (error) {
     handleError(res, 500, error.message);
